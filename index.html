@@ -1,10 +1,1151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gehad Kadri</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Gehad Kadri | Content Creator & Social Media Marketer Portfolio" />
+<title>Gehad Kadri — Content Creator & Social Media Marketer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+  /* ── TOKENS ────────────────────────────────────── */
+  :root {
+    --navy:    #090e1a;
+    --navy-2:  #0f1628;
+    --navy-3:  #151d35;
+    --slate:   #1e2a45;
+    --border:  rgba(255,255,255,0.07);
+    --gold:    #c9a96e;
+    --gold-2:  #e8c98a;
+    --text:    #e8e4dc;
+    --muted:   #7a8599;
+    --dim:     #4a566e;
+    --white:   #ffffff;
+    --ff-disp: 'Cormorant Garamond', Georgia, serif;
+    --ff-body: 'DM Sans', system-ui, sans-serif;
+    --ff-mono: 'DM Mono', monospace;
+    --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ── RESET ─────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ── NAV ────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 5vw;
+    background: rgba(9,14,26,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    font-family: var(--ff-disp);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.55rem 1.4rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── HERO ────────────────────────────────────────── */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 10rem 5vw 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,169,110,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(21,29,53,0.8) 0%, transparent 80%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.025;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--gold); opacity: 0.6;
+  }
+  .hero-name {
+    font-family: var(--ff-disp);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-title {
+    font-family: var(--ff-disp);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+  }
+  .hero-bio {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-2); transform: translateY(-1px); }
+  .btn-ghost {
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: var(--ff-disp);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  /* ── SECTION BASE ───────────────────────────────── */
+  section { padding: 7rem 5vw; }
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block; width: 24px; height: 1px;
+    background: var(--gold); opacity: 0.6;
+  }
+  .section-title {
+    font-family: var(--ff-disp);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.8;
+  }
+  .section-header { margin-bottom: 4rem; }
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── ABOUT ──────────────────────────────────────── */
+  #about { background: var(--navy-2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+  .about-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .about-list li {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  .about-list li::before {
+    content: '';
+    display: block; width: 4px; height: 4px;
+    border-radius: 50%; background: var(--gold); flex-shrink: 0;
+  }
+  .about-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .about-card {
+    background: var(--navy-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .about-card:hover { border-color: rgba(201,169,110,0.25); }
+  .about-card-label {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .about-card-val {
+    font-family: var(--ff-disp);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .about-card-desc {
+    font-size: 0.8rem; color: var(--dim);
+    margin-top: 0.25rem;
+  }
+
+  /* ── SKILLS ─────────────────────────────────────── */
+  #skills { background: var(--navy); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .skill-card {
+    background: var(--navy-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+    transition: border-color 0.25s, transform 0.25s var(--ease);
+  }
+  .skill-card:hover {
+    border-color: rgba(201,169,110,0.3);
+    transform: translateY(-3px);
+  }
+  .skill-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+  .skill-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .skill-desc {
+    font-size: 0.8rem;
+    color: var(--dim);
+    line-height: 1.7;
+  }
+
+  /* ── WORK ────────────────────────────────────────── */
+  #work { background: var(--navy-2); }
+  .work-filter {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .filter-btn {
+    padding: 0.45rem 1.1rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--dim);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn.active,
+  .filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,169,110,0.06);
+  }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .work-card {
+    background: var(--navy-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease), border-color 0.3s;
+    cursor: pointer;
+  }
+  .work-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,169,110,0.25);
+  }
+  .work-thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--slate);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .work-thumb-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    color: var(--dim);
+  }
+  .work-thumb-placeholder .icon { font-size: 2rem; opacity: 0.4; }
+  .work-thumb-placeholder .label {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .work-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s var(--ease);
+  }
+  .work-card:hover .work-thumb img { transform: scale(1.04); }
+  .work-overlay {
+    position: absolute; inset: 0;
+    background: rgba(9,14,26,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .work-card:hover .work-overlay { opacity: 1; }
+  .work-overlay-link {
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .work-overlay-link:hover { background: var(--gold); color: var(--navy); }
+  .work-info { padding: 1.25rem 1.5rem 1.5rem; }
+  .work-tag {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .work-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.35rem;
+  }
+  .work-desc {
+    font-size: 0.8rem;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+
+  /* ── SERVICES ───────────────────────────────────── */
+  #services { background: var(--navy); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: border-color 0.25s, background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .service-card:hover { border-color: rgba(201,169,110,0.25); background: var(--navy-2); }
+  .service-card:hover::before { opacity: 1; }
+  .service-num {
+    font-family: var(--ff-disp);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 1.25rem;
+    transition: color 0.25s;
+  }
+  .service-card:hover .service-num { color: rgba(201,169,110,0.12); }
+  .service-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .service-desc {
+    font-size: 0.82rem;
+    color: var(--dim);
+    line-height: 1.75;
+  }
+
+  /* ── CLIENTS ────────────────────────────────────── */
+  #clients { background: var(--navy-2); }
+  .clients-intro {
+    font-size: 0.9rem;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+  }
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .client-card {
+    background: var(--navy-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    transition: border-color 0.2s;
+    text-align: center;
+  }
+  .client-card:hover { border-color: rgba(201,169,110,0.25); }
+  .client-logo {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--slate);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    overflow: hidden;
+  }
+  .client-logo-ph {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--slate);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    color: var(--dim);
+  }
+  .client-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .client-industry {
+    font-size: 0.7rem;
+    color: var(--dim);
+    font-family: var(--ff-mono);
+    letter-spacing: 0.08em;
+  }
+  .clients-note {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--dim);
+    font-style: italic;
+  }
+
+  /* ── CONTACT ────────────────────────────────────── */
+  #contact { background: var(--navy); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-text p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--navy-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: rgba(201,169,110,0.3); color: var(--gold); }
+  .contact-link-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .contact-link-label {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+  .contact-link-val {
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .form-group input,
+  .form-group textarea {
+    background: var(--navy-2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.85rem 1rem;
+    font-family: var(--ff-body);
+    font-size: 0.88rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: rgba(201,169,110,0.4);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--dim); }
+  .form-submit {
+    padding: 0.9rem 2rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--ff-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--gold-2); }
+
+  /* ── FOOTER ─────────────────────────────────────── */
+  footer {
+    padding: 2rem 5vw;
+    background: var(--navy-2);
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name {
+    font-family: var(--ff-disp);
+    font-size: 1rem;
+    color: var(--white);
+  }
+  .footer-name span { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--dim);
+  }
+
+  /* ── SCROLL REVEAL ──────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 4vw; }
+    .nav-links { display: none; }
+    section { padding: 5rem 4vw; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.75rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
 </head>
 <body>
-    <h1>Welcome to my website!</h1>
-    <p>This is my first website on GitHub Pages.</p>
+
+<!-- ── NAV ─────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">Gehad<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────── -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Available for new projects</p>
+    <h1 class="hero-name">Gehad<br><em>Kadri</em></h1>
+    <p class="hero-title">Content Creator & Social Media Marketer</p>
+    <p class="hero-bio">
+      Creative content creator and social media marketer with hands-on experience
+      in content strategy, copywriting, and campaign execution — turning ideas into
+      content that connects with audiences and supports business goals.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-label">Brand Clients</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Industries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── ABOUT ─────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="section-eyebrow">About Me</p>
+      <h2 class="section-title">The story<br>behind the <em>content</em></h2>
+      <p>
+        I'm a content creator and social media marketer passionate about storytelling,
+        creative concepts, and building strong brand identities through content.
+        With over 3 years in the marketing field, I've worked with brands across
+        hospitality, fashion, interior design, and retail.
+      </p>
+      <p>
+        I specialize in creating engaging content that doesn't just look good —
+        it connects with the right audience and supports real business goals.
+        From strategy to execution, I'm involved in every step of the process.
+      </p>
+      <ul class="about-list">
+        <li>Content Strategy & Planning</li>
+        <li>Copywriting & Creative Direction</li>
+        <li>Campaign Execution & Management</li>
+        <li>Brand Identity through Social Media</li>
+      </ul>
+    </div>
+    <div class="about-cards reveal">
+      <div class="about-card">
+        <div class="about-card-label">Focus</div>
+        <div class="about-card-val">Strategy<br>+ Creativity</div>
+        <div class="about-card-desc">Where ideas become content that performs.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Industries</div>
+        <div class="about-card-val">Hospitality · Fashion<br>Interior · Retail</div>
+        <div class="about-card-desc">Cross-industry experience with consistent quality.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Languages</div>
+        <div class="about-card-val">Arabic · English</div>
+        <div class="about-card-desc">Bilingual content creation, native Arabic.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── SKILLS ─────────────────────────────────────────── -->
+<section id="skills">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">What I Do</p>
+    <h2 class="section-title">Skills &amp; <em>Expertise</em></h2>
+    <p class="section-sub">A blend of strategic thinking and creative execution across the full content lifecycle.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">✦</div>
+      <div class="skill-name">Content Strategy</div>
+      <div class="skill-desc">Building content plans aligned with brand goals, audience behavior, and platform best practices.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">◈</div>
+      <div class="skill-name">Copywriting</div>
+      <div class="skill-desc">Persuasive, on-brand copy for social media, campaigns, captions, and ad creatives.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">⬡</div>
+      <div class="skill-name">Social Media Management</div>
+      <div class="skill-desc">End-to-end management of Instagram, Facebook, and TikTok accounts with measurable results.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">◇</div>
+      <div class="skill-name">Campaign Execution</div>
+      <div class="skill-desc">Planning and running social campaigns from concept to delivery, on time and on brand.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">△</div>
+      <div class="skill-name">Creative Direction</div>
+      <div class="skill-desc">Visual storytelling, mood boarding, and directing creative concepts that stand out.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">○</div>
+      <div class="skill-name">Content Production</div>
+      <div class="skill-desc">Reels, carousels, stories, and written pieces — crafted for engagement and reach.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── WORK ─────────────────────────────────────────── -->
+<section id="work">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Portfolio</p>
+    <h2 class="section-title">Selected <em>Work</em></h2>
+    <p class="section-sub">A curated mix of campaigns, reels, carousels, and content strategies across industries.</p>
+  </div>
+  <div class="work-filter reveal">
+    <button class="filter-btn active" onclick="filterWork('all', this)">All Work</button>
+    <button class="filter-btn" onclick="filterWork('reel', this)">Reels</button>
+    <button class="filter-btn" onclick="filterWork('carousel', this)">Carousels</button>
+    <button class="filter-btn" onclick="filterWork('campaign', this)">Campaigns</button>
+    <button class="filter-btn" onclick="filterWork('copy', this)">Copywriting</button>
+  </div>
+  <div class="work-grid" id="workGrid">
+
+    <!-- PLACEHOLDER CARDS — replace src="" with your image paths & href="" with Instagram links -->
+    <div class="work-card" data-type="reel">
+      <div class="work-thumb">
+        <div class="work-thumb-placeholder">
+          <div class="icon">▷</div>
+          <div class="label">Reel Thumbnail</div>
+        </div>
+        <div class="work-overlay">
+          <a href="YOUR_INSTAGRAM_REEL_LINK_1" target="_blank" class="work-overlay-link">View on Instagram</a>
+        </div>
+      </div>
+      <div class="work-info">
+        <span class="work-tag">Reels</span>
+        <div class="work-title">Project Title 1</div>
+        <div class="work-desc">Brand / Campaign description goes here.</div>
+      </div>
+    </div>
+
+    <div class="work-card" data-type="carousel">
+      <div class="work-thumb">
+        <div class="work-thumb-placeholder">
+          <div class="icon">⊞</div>
+          <div class="label">Carousel Design</div>
+        </div>
+        <div class="work-overlay">
+          <a href="YOUR_INSTAGRAM_POST_LINK_2" target="_blank" class="work-overlay-link">View on Instagram</a>
+        </div>
+      </div>
+      <div class="work-info">
+        <span class="work-tag">Carousel</span>
+        <div class="work-title">Project Title 2</div>
+        <div class="work-desc">Brand / Campaign description goes here.</div>
+      </div>
+    </div>
+
+    <div class="work-card" data-type="campaign">
+      <div class="work-thumb">
+        <div class="work-thumb-placeholder">
+          <div class="icon">◈</div>
+          <div class="label">Campaign</div>
+        </div>
+        <div class="work-overlay">
+          <a href="YOUR_INSTAGRAM_POST_LINK_3" target="_blank" class="work-overlay-link">View on Instagram</a>
+        </div>
+      </div>
+      <div class="work-info">
+        <span class="work-tag">Campaign</span>
+        <div class="work-title">Project Title 3</div>
+        <div class="work-desc">Brand / Campaign description goes here.</div>
+      </div>
+    </div>
+
+    <div class="work-card" data-type="reel">
+      <div class="work-thumb">
+        <div class="work-thumb-placeholder">
+          <div class="icon">▷</div>
+          <div class="label">Reel Thumbnail</div>
+        </div>
+        <div class="work-overlay">
+          <a href="YOUR_INSTAGRAM_REEL_LINK_4" target="_blank" class="work-overlay-link">View on Instagram</a>
+        </div>
+      </div>
+      <div class="work-info">
+        <span class="work-tag">Reels</span>
+        <div class="work-title">Project Title 4</div>
+        <div class="work-desc">Brand / Campaign description goes here.</div>
+      </div>
+    </div>
+
+    <div class="work-card" data-type="copy">
+      <div class="work-thumb">
+        <div class="work-thumb-placeholder">
+          <div class="icon">✦</div>
+          <div class="label">Copy Sample</div>
+        </div>
+        <div class="work-overlay">
+          <a href="YOUR_INSTAGRAM_POST_LINK_5" target="_blank" class="work-overlay-link">View Post</a>
+        </div>
+      </div>
+      <div class="work-info">
+        <span class="work-tag">Copywriting</span>
+        <div class="work-title">Project Title 5</div>
+        <div class="work-desc">Brand / Campaign description goes here.</div>
+      </div>
+    </div>
+
+    <div class="work-card" data-type="carousel">
+      <div class="work-thumb">
+        <div class="work-thumb-placeholder">
+          <div class="icon">⊞</div>
+          <div class="label">Carousel Design</div>
+        </div>
+        <div class="work-overlay">
+          <a href="YOUR_INSTAGRAM_POST_LINK_6" target="_blank" class="work-overlay-link">View on Instagram</a>
+        </div>
+      </div>
+      <div class="work-info">
+        <span class="work-tag">Carousel</span>
+        <div class="work-title">Project Title 6</div>
+        <div class="work-desc">Brand / Campaign description goes here.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── SERVICES ─────────────────────────────────────── -->
+<section id="services">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">What I Offer</p>
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">End-to-end content support — from strategy to the final published post.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">Social Media Management</div>
+      <div class="service-desc">Full account management including content calendars, posting schedules, community engagement, and monthly performance reviews.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <div class="service-name">Content Strategy</div>
+      <div class="service-desc">Audience research, competitor analysis, content pillars, and platform-specific strategies that drive real results.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <div class="service-name">Copywriting & Captions</div>
+      <div class="service-desc">Engaging, on-brand copy for social posts, campaigns, ads, and any other written touchpoint — in Arabic and English.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-name">Campaign Execution</div>
+      <div class="service-desc">Creative concept development and end-to-end campaign execution for product launches, seasonal campaigns, and brand moments.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <div class="service-name">Content Creation</div>
+      <div class="service-desc">Production of reels, carousels, stories, and static posts — scripted, designed, and ready to publish.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">06</div>
+      <div class="service-name">Brand Voice Development</div>
+      <div class="service-desc">Defining and building a consistent brand tone of voice across all content and communication channels.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CLIENTS ─────────────────────────────────────── -->
+<section id="clients">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Who I've Worked With</p>
+    <h2 class="section-title">Clients &amp; <em>Brands</em></h2>
+  </div>
+  <p class="clients-intro reveal">
+    Brands and businesses I've had the pleasure of working with across hospitality,
+    fashion, interior design, and retail.
+  </p>
+  <div class="clients-grid reveal">
+    <!-- PLACEHOLDER CLIENT CARDS — replace emoji with <img> tags once you have logos -->
+    <div class="client-card">
+      <div class="client-logo-ph">🏨</div>
+      <div class="client-name">Client Name</div>
+      <div class="client-industry">Hospitality</div>
+    </div>
+    <div class="client-card">
+      <div class="client-logo-ph">👗</div>
+      <div class="client-name">Client Name</div>
+      <div class="client-industry">Fashion</div>
+    </div>
+    <div class="client-card">
+      <div class="client-logo-ph">🛋️</div>
+      <div class="client-name">Client Name</div>
+      <div class="client-industry">Interior Design</div>
+    </div>
+    <div class="client-card">
+      <div class="client-logo-ph">🛍️</div>
+      <div class="client-name">Client Name</div>
+      <div class="client-industry">Retail</div>
+    </div>
+    <div class="client-card">
+      <div class="client-logo-ph">✦</div>
+      <div class="client-name">Client Name</div>
+      <div class="client-industry">Industry</div>
+    </div>
+    <div class="client-card">
+      <div class="client-logo-ph">◈</div>
+      <div class="client-name">Client Name</div>
+      <div class="client-industry">Industry</div>
+    </div>
+  </div>
+  <p class="clients-note reveal">* Client logos and links to be added — replace placeholders with actual brand names and logos.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ─────────────────────────────────────── -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="section-eyebrow">Let's Work Together</p>
+      <h2 class="section-title">Ready to create<br>something <em>great?</em></h2>
+      <div class="contact-text">
+        <p>
+          Whether you need a full content strategy, a one-off campaign, or ongoing
+          social media management — I'd love to hear about your project.
+        </p>
+      </div>
+      <div class="contact-links">
+        <!-- Replace YOUR_* placeholders with actual values -->
+        <a href="mailto:YOUR_EMAIL@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          <div>
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-val">YOUR_EMAIL@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💬</span>
+          <div>
+            <span class="contact-link-label">WhatsApp</span>
+            <span class="contact-link-val">+20 YOUR NUMBER</span>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          <div>
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-val">Gehad Kadri</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" class="contact-link">
+          <span class="contact-link-icon">◎</span>
+          <div>
+            <span class="contact-link-label">Instagram</span>
+            <span class="contact-link-val">@YOUR_HANDLE</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="What's this about?" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-name">Gehad Kadri<span>.</span></div>
+  <div class="footer-copy">© 2025 Gehad Kadri. All rights reserved.</div>
+</footer>
+
+<!-- ── SCRIPTS ─────────────────────────────────────────── -->
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Work filter
+  function filterWork(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.work-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Form submit placeholder
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#2a5a3a';
+    btn.style.color = '#a8e6c1';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
 </body>
 </html>
